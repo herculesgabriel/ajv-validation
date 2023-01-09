@@ -5,8 +5,7 @@ import { mongoConnection } from './database.mjs'
 const app = express()
 
 app.get('/characters', async (_request, response) => {
-  const db = mongoConnection.db('CHALLENGE')
-  const collection = db.collection('characters')
+  const collection = mongoConnection.collection('characters')
 
   const characters = await collection.find().toArray()
 
